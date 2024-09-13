@@ -1,0 +1,62 @@
+# Sistema de Gerenciamento de Vendas
+
+Este repositório contém o esquema de banco de dados para um sistema de gerenciamento de vendas. O banco de dados é projetado para armazenar informações sobre clientes, produtos e vendas.
+
+## Estrutura do Banco de Dados
+
+O banco de dados possui as seguintes tabelas:
+
+- **Clientes**
+  - `id_cliente` (INT, PK, AUTO_INCREMENT): Identificador único do cliente.
+  - `nome` (VARCHAR(100)): Nome do cliente.
+  - `email` (VARCHAR(100), UNIQUE): Endereço de e-mail do cliente.
+  - `telefone` (VARCHAR(20)): Número de telefone do cliente.
+
+- **Produtos**
+  - `id_produto` (INT, PK, AUTO_INCREMENT): Identificador único do produto.
+  - `nome` (VARCHAR(100)): Nome do produto.
+  - `preco` (DECIMAL(10,2)): Preço do produto.
+  - `quantidade_estoque` (INT): Quantidade disponível em estoque.
+
+- **Vendas**
+  - `id_venda` (INT, PK, AUTO_INCREMENT): Identificador único da venda.
+  - `id_cliente` (INT, FK): Referência ao cliente que fez a compra.
+  - `id_produto` (INT, FK): Referência ao produto vendido.
+  - `quantidade` (INT): Quantidade do produto vendido.
+  - `data_venda` (DATE): Data da venda.
+
+## Scripts SQL
+
+Os scripts SQL no repositório realizam as seguintes operações:
+
+1. **Criação do Banco de Dados e Tabelas**:
+   - Cria o banco de dados `sistema_vendas` e as tabelas `Clientes`, `Produtos` e `Vendas`.
+
+2. **Inserção de Dados**:
+   - Adiciona clientes, produtos e registros de vendas iniciais.
+
+3. **Consultas e Relatórios**:
+   - Mostra todas as vendas realizadas, incluindo o nome do cliente e o nome do produto.
+   - Lista todas as compras realizadas por um cliente específico.
+   - Exibe o total de vendas realizadas por produto.
+
+4. **Atualização e Deleção**:
+   - Atualiza o estoque de produtos após uma venda.
+   - Atualiza as informações de um cliente.
+   - Deleta uma venda e, se necessário, exclui o cliente associado se não houver mais vendas.
+   - Remove um produto e todas as vendas associadas a ele.
+
+## Uso
+
+1. Clone este repositório.
+2. Execute os scripts SQL fornecidos em seu banco de dados MySQL para criar o esquema e inserir dados.
+3. Utilize as consultas SQL fornecidas para interagir com o banco de dados e gerar relatórios.
+
+## Contribuições
+
+Se você deseja contribuir para este projeto, por favor, faça um fork do repositório e envie um pull request com suas alterações.
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
